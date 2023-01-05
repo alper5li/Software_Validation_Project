@@ -223,6 +223,9 @@ def Injection():
 """
 #trying to send SQL Injection commands 
 Injection()
+
+
+
 # Rapor : complexity(3)  özel karakterler bozuyor, bozan karakterler listesi : [' \t\n\r\x0b\x0c']
 # Rapor : Message part can handle more than 400 chars. 
 
