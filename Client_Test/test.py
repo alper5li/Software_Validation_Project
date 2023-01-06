@@ -11,6 +11,7 @@ driver = webdriver.Chrome(service=serv_obj)
 
 #opens chrome and rotates to this website.
 driver.get("https://astronomy74.github.io/SteelBros/index.html")
+#driver.get("https://alperbesli.nicepage.io")
 
 #maximizes current chrome window.
 driver.maximize_window()
