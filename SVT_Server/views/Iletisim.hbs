@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="/static/stylesheets/nicepage.css" media="screen">
     <link rel="stylesheet" href="/static/stylesheets/Iletisim.css" media="screen">
     <link id="u-theme-google-font" rel="stylesheet" href="/static/stylesheets/googleapi1.css">
-    <script class="u-script" type="text/javascript" src="/static/javascripts/jquery.js" defer></script>
-    <script class="u-script" type="text/javascript" src="/static/javascripts/nicepage.js" defer></script>
     <meta name="generator" content="Nicepage 4.16.0, nicepage.com">
     
     
@@ -25,7 +23,7 @@
     <meta property="og:type" content="website">
   </head>
   <body class="u-body u-xl-mode" data-lang="tr"><header class="u-clearfix u-grey-90 u-header u-header" id="sec-405b"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="4000" data-image-height="4000">
+        <a href="Ana-Sayfa" class="u-image u-logo u-image-1" data-image-width="4000" data-image-height="4000">
           <img src="/static/images/Dragon-logo-symbol-on-transparent-background-PNG.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
@@ -66,27 +64,22 @@
         <h1 class="u-text u-text-default u-text-1">İletişim<span style="font-size: 4.5rem;"></span>
         </h1>
         <div class="u-form u-form-1">
-          <form action="//publish.nicepage.com/Form/Process" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" style="padding: 35px;" source="email" name="form">
+          <form id="message" action="/message" method="post">
             <div class="u-form-group u-form-name u-label-none">
-              <label for="name-3b9a" class="u-label">Name</label>
-              <input type="text" placeholder="İSMİNİZ" id="name-3b9a" name="name" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" required="">
+              <label for="name" class="u-label">Name</label>
+              <input type="text" placeholder="İSMİNİZ" id="name" name="name" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" required="">
             </div>
             <div class="u-form-email u-form-group u-label-none">
-              <label for="email-3b9a" class="u-label">Email</label>
-              <input type="email" placeholder="MAİL ADRESİNİZ" id="email-3b9a" name="email" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-2" required="">
+              <label for="email" class="u-label">Email</label>
+              <input type="email" placeholder="MAİL ADRESİNİZ" id="email" name="email" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-2" required="">
             </div>
             <div class="u-form-group u-form-message u-label-none">
-              <label for="message-3b9a" class="u-label">Message</label>
-              <textarea placeholder="İLETMEK İSTEDİĞİNİZ MESAJINIZ ..." rows="4" cols="50" id="message-3b9a" name="message" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-3" required=""></textarea>
+              <label for="message" class="u-label">Message</label>
+              <textarea placeholder="İLETMEK İSTEDİĞİNİZ MESAJINIZ ..." rows="4" cols="50" id="message" name="message" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-3" required=""></textarea>
             </div>
             <div class="u-align-center u-form-group u-form-submit">
-              <a href="https://google.com" class="u-border-2 u-border-grey-75 u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-40 u-radius-50 u-white u-btn-1">Gönder<br>
-              </a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <button  type="submit" value="submit" class="u-border-2 u-border-grey-75 u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-40 u-radius-50 u-white u-btn-1">Gönder<br>      
             </div>
-            <div class="u-form-send-message u-form-send-success">Mesajınız tarafıma iletildi ! İletişime geçtiğiniz için teşekkür ederim. En kısa sürede size dönüş sağlarım.</div>
-            <div class="u-form-send-error u-form-send-message">Mesajınız gönderilemedi. Lütfen girdiğiniz bilgileri kontrol ediniz...</div>
-            <input type="hidden" value="" name="recaptchaResponse">
           </form>
         </div>
         <div class="u-social-icons u-spacing-100 u-social-icons-1" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-direction="" data-animation-delay="0">

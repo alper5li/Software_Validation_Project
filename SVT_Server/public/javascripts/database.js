@@ -5,6 +5,7 @@ let connection = mysql.createConnection({
   user: "root",
   password:"",
   database:"svt"
+
 });
 
 

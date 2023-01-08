@@ -1,6 +1,6 @@
 let { query } = require('express');
 let express = require('express');
-const { response, request } = require('../app');
+//const { response, request } = require('../app');
 let controlling = require('../public/javascripts/login');
 let router = express.Router();
 let database = require('../public/javascripts/database');
@@ -27,26 +27,16 @@ router.get('/Iletisim', function(req,res){
   res.render('Iletisim', { title: 'Express' });
 })
 
-router.get('/secret',checkAuth,(req,res)=>{
-  req.body.user_id
-  res.status(202).render('secret')
-})
+
 
 router.get('/login', function(req,res){
   res.render('login', { title: 'Express' });
 })
 
 
-router.get('/secret',(req,res)=>{
- if(session.user_id)
- {
-  res.render('secret');
- }
- else
- {
-  res.send('if you are viewing this page that means you are not logged in', { title: 'Express' });
-
- }
+router.get('/secret',checkAuth,(req,res)=>{
+  console.log(req.body.user_id);
+  res.status(202).render('secret')
 })
 
 router.post('/login',(req,res,next)=>{
@@ -102,12 +92,60 @@ router.get('/logout', function (req, res) {
 
 
 function checkAuth(req, res, next) {
-  if (!req.session.user_id) {
-    res.send('You are not authorized to view this page');
-  } else {
+  if (!req.session.user_id) 
+  {
+    res.render('403');
+  } 
+  else {
     next();
   }
 }
 
 
+router.post('/message',checkIsEmpty,(req,res)=>{
+  let name =Buffer.from(req.body.name, 'utf-8').toString();
+  let email = Buffer.from(req.body.email, 'utf-8').toString();
+  let message = Buffer.from(req.body.message, 'utf-8').toString();
+  query = "INSERT INTO messages (name, email, message) VALUES ?";
+  let VALUES =[[name,email,message]];
+  database.query(query,[VALUES],(error,data)=>{
+    if(error) 
+    {
+      console.log('\x1b[33m%s\x1b[0m',"Error while inserting data [" + error+"]");
+      res.status(200).send("Error occured while sending a message, please try again later.");
+    }
+    else
+    {
+      console.log("Record added.")
+      res.status(200).send("Message Sent ! Thanks for contacting with me.");
+    }
+    
+  });
+});
+
+
+function checkIsEmpty(req,res,next)
+{
+  if(
+    checkEmpty(req.body.name) && 
+    checkEmpty(req.body.email) && 
+    checkEmpty(req.body.message) 
+    )
+    {
+      next();
+    }
+    else{
+      res.render("Message didnt sent !")
+    }
+    
+}
+
+
+function checkEmpty(element)
+{
+  if(element === null || element === "")
+  return false;
+  else
+  return true;
+}
 module.exports = router;
