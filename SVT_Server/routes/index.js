@@ -3,19 +3,19 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.redirect('Ana-Sayfa');
 });
 
 router.get('/Ana-Sayfa', function(req,res){
-  res.render('Ana-Sayfa.hbs', { title: 'Express' });
+  res.render('Ana-Sayfa', { title: 'Express' });
 })
 
 router.get('/Hakkimda', function(req,res){
-  res.render('Hakkimda.hbs', { title: 'Express' });
+  res.render('Hakkimda', { title: 'Express' });
 })
 
 router.get('/Iletisim', function(req,res){
-  res.render('Iletisim.hbs', { title: 'Express' });
+  res.render('Iletisim', { title: 'Express' });
 })
 
 router.get('/login', function(req,res){

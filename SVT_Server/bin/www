@@ -88,5 +88,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   
-  console.log(`Server is listening on => http://localhost:${port}/login`)
+  console.log(`Server is listening on => http://localhost:${port}/`)
 }
