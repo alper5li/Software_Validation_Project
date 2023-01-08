@@ -28,6 +28,16 @@ router.get('/Iletisim', function(req,res){
 })
 
 
+router.get('/loginError3', function(req,res){
+  res.render('loginError3', { title: 'Express' });
+})
+
+
+router.get('/loginError4', function(req,res){
+  res.render('loginError4', { title: 'Express' });
+})
+
+
 
 router.get('/login', function(req,res){
   res.render('login', { title: 'Express' });
@@ -61,26 +71,28 @@ router.post('/login',(req,res,next)=>{
           }
           else
           {
-            res.send("Incorrect Password");
+            res.redirect("loginError3");
           
           }
         }
       }
       else
       {
-        res.send("Incorrect Email Address");
+        res.redirect("loginError4");
       }
       res.send();
     });
   }
   else if(!username.match(onlyLettersPattern) && !password.match(onlyLettersPattern))
   {
-    res.send('No special characters and no numbers, please!');
+    //No Special characters and no numbers, please!
+    res.render('loginError1');
     res.end();
   }
   else
   {
-    res.send('Please Enter Email Address and Password Details');
+    //Please Enter Email Addres and Password Details
+    res.render('loginError2');
     res.end();
   }
 })
@@ -112,12 +124,12 @@ router.post('/message',checkIsEmpty,(req,res)=>{
     if(error) 
     {
       console.log('\x1b[33m%s\x1b[0m',"Error while inserting data [" + error+"]");
-      res.status(200).send("Error occured while sending a message, please try again later.");
+      res.status(200).render('IletisimError');
     }
     else
     {
       console.log("Record added.")
-      res.status(200).send("Message Sent ! Thanks for contacting with me.");
+      res.status(200).render('IletisimSuccess');
     }
     
   });
@@ -135,7 +147,7 @@ function checkIsEmpty(req,res,next)
       next();
     }
     else{
-      res.render("Message didnt sent !")
+      res.send("Message didnt sent !")
     }
     
 }
@@ -143,9 +155,6 @@ function checkIsEmpty(req,res,next)
 
 function checkEmpty(element)
 {
-  if(element === null || element === "")
-  return false;
-  else
-  return true;
+  return !(element === null || element === "");
 }
 module.exports = router;

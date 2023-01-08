@@ -10,8 +10,8 @@ serv_obj=Service("./chromedriver.exe")
 driver = webdriver.Chrome(service=serv_obj)
 
 #opens chrome and rotates to this website.
-driver.get("https://astronomy74.github.io/SteelBros/index.html")
-#driver.get("https://alperbesli.nicepage.io")
+driver.get("http://localhost:5555/Ana-Sayfa")
+time.sleep(3)
 
 #maximizes current chrome window.
 driver.maximize_window()
@@ -22,41 +22,92 @@ def status_check(ByWhat,element,description):
     print(element+" "+description+" is displayed : " + str(driver.find_element(ByWhat, element).is_displayed()))
 
 
-#Checking The Rotation (href) links is working or not.
-description = "href link"
-status_check(By.LINK_TEXT,"Forging Services", description)
-status_check(By.LINK_TEXT,"About Us", description)
-status_check(By.LINK_TEXT,"Industries", description)
-status_check(By.LINK_TEXT,"Contact Us", description)
+#Checking The Rotation links is working or not.
+description = "Navbar Button"
+status_check(By.ID,'Ana Sayfa', description)
+status_check(By.ID,"Hakkimda", description)
+status_check(By.ID,"Iletisim", description)
+status_check(By.ID,"Login", description)
 
-
-#Clicks to Contact Us link and redirects to contact form
-print("Contact Us clicked ... ") 
-driver.find_element(By.LINK_TEXT, "Contact Us").click()
 time.sleep(4)
+#hamburger menu only shows when window is minimizedi, setting window size 
+driver.set_window_size(1024,768)
+
+#hamburger menu appears
+time.sleep(4)
+hamburger = driver.find_element(By.CLASS_NAME,"u-svg-link")
+hamburger.click()
+time.sleep(4)
+
+#hamburger menu rotating buttons 
+status_check(By.ID,'Ana Sayfa2', description)
+status_check(By.ID,"Hakkimda2", description)
+status_check(By.ID,"Iletisim2", description)
+status_check(By.ID,"Login2", description)
+
+time.sleep(4)
+#Maximize window
+driver.maximize_window()
+
+time.sleep(4)
+
+
+#Wrote a method redirects automatically every single button in order to List one by one
+def redirect(element):
+    driver.find_element(By.ID,element).click()
+    time.sleep(2)
+
+navigateArray = [
+    "blog1",
+    "Ana Sayfa",
+    "blog2",
+    "Ana Sayfa",
+    "blog3",
+    "Ana Sayfa",
+    "toRight",
+    "blog4",
+    "Ana Sayfa",
+    "Hakkimda",
+    "Iletisim",
+    "Login",
+    "Iletisim"
+]
+
+for id in navigateArray:
+    redirect(id)
+
 
 #Checking input fields and submit button is enabled and displayed or not.
 description = "field"
 status_check(By.ID,"name", description)
+status_check(By.ID,"email", description)
 status_check(By.ID,"message", description)
-status_check(By.ID,"button", description)
 
 
 #Entering random values into input fields and submit 
 name_field = driver.find_element(By.ID, "name")
 email_field = driver.find_element(By.ID, "email")
 message_field = driver.find_element(By.ID, "message")
-button = driver.find_element(By.ID, "button")
-close_button = driver.find_element(By.ID,"closeBtn")
+button = driver.find_element(By.ID, "submit")
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 #Testing with manual entries
 name_field.send_keys("@æß>£#>£$")
-email_field.send_keys("alper.besli@st.uskudar.edu.tr")
-message_field.send_keys("my password is ....")
-button.click()
-close_button.click()
 time.sleep(2)
+
+email_field.send_keys("alper.besli@st.uskudar.edu.tr")
+time.sleep(2)
+
+
+# due to message_field is <textarea>, it can not send keys without clicking it 
+driver.find_element(By.ID, "message").send_keys("123123213")
+
+time.sleep(2)
+
+button.click()
+time.sleep(10)
 
 #defining method which creates completely random strings for test, complexity declares strength and complexitiy of created string.
 def randomString(length,complexity):
