@@ -1,0 +1,778 @@
+ .u-section-1 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("/static/images/27fb4852b7e7074cdf8e52c9bb63d772356ade562180d02a46c9501c541b5a6a7d82c2c93d0b35d633b13ee97f4d19cdf363a0d0f94e0eb1d7d9ca_1280.jpg");
+  background-position: 50% 50%;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 974px;
+}
+
+.u-section-1 .u-blog-1 {
+  width: 1240px;
+  margin: 158px auto 60px -38px;
+}
+
+.u-section-1 .u-repeater-1 {
+  grid-auto-columns: calc(33.3333% - 6.66667px);
+  grid-template-columns: calc(33.3333% - 6.66667px) calc(33.3333% - 6.66667px) calc(33.3333% - 6.66667px);
+  grid-gap: 10px 10px;
+  min-height: 708px;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 30px 30px 30px 0;
+}
+
+.u-section-1 .u-text-1 {
+  margin-top: 49px;
+}
+
+.u-section-1 .u-image-1 {
+  height: 284px;
+  margin-top: 20px;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 30px 30px 30px 0;
+}
+
+.u-section-1 .u-text-3 {
+  margin-top: 49px;
+}
+
+.u-section-1 .u-image-2 {
+  height: 284px;
+  margin-top: 20px;
+}
+
+.u-section-1 .u-container-layout-3 {
+  padding: 30px 30px 30px 0;
+}
+
+.u-section-1 .u-text-5 {
+  margin-top: 49px;
+}
+
+.u-section-1 .u-image-3 {
+  height: 284px;
+  margin-top: 20px;
+}
+
+.u-section-1 .u-container-layout-4 {
+  padding: 30px 30px 30px 0;
+}
+
+.u-section-1 .u-text-7 {
+  margin-top: 49px;
+}
+
+.u-section-1 .u-image-4 {
+  height: 284px;
+  margin-top: 20px;
+}
+
+.u-section-1 .u-gallery-nav-1 {
+  position: absolute;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.u-section-1 .u-gallery-nav-2 {
+  position: absolute;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 803px;
+  }
+
+  .u-section-1 .u-blog-1 {
+    width: 940px;
+    margin-left: 0;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-auto-columns: calc(33.333333333333336% - 6.66667px);
+    grid-template-columns: repeat(3, calc(33.333333333333336% - 6.66667px));
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 615px;
+  }
+
+  .u-section-1 .u-blog-1 {
+    width: 720px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-auto-columns: calc(50% - 5.0000025px);
+    grid-template-columns: repeat(2, calc(50% - 5.0000025px));
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 461px;
+  }
+
+  .u-section-1 .u-blog-1 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-auto-columns: calc(100% - 0px);
+    grid-template-columns: 100%;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-3 {
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-4 {
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 290px;
+  }
+
+  .u-section-1 .u-blog-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-auto-columns: 100%;
+  }
+} .u-section-2 {
+  min-height: 838px;
+}
+
+.u-section-2 .u-image-1 {
+  min-height: 838px;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("/static/images/unnamed.jpg");
+  background-position: 50% 50%;
+}
+
+.u-section-2 .u-container-layout-1 {
+  padding: 30px;
+}
+
+.u-section-2 .u-list-1 {
+  width: 1228px;
+  margin: 127px auto 0;
+}
+
+.u-section-2 .u-repeater-1 {
+  grid-template-columns: calc(25% - 15px) calc(25% - 15px) calc(25% - 15px) calc(25% - 15px);
+  min-height: 546px;
+  grid-gap: 20px 20px;
+}
+
+.u-section-2 .u-list-item-1 {
+  transition-duration: 0.5s;
+}
+
+.u-section-2 .u-container-layout-2 {
+  padding: 30px;
+}
+
+.u-section-2 .u-icon-1 {
+  height: 70px;
+  width: 70px;
+  margin: 69px auto 0;
+}
+
+.u-section-2 .u-text-1 {
+  font-weight: 700;
+  transition-duration: 0.5s;
+  margin: 20px 0 0;
+}
+
+.u-section-2 .u-text-2 {
+  font-style: italic;
+  transition-duration: 0.5s;
+  margin: 20px 0 0;
+}
+
+.u-section-2 .u-list-item-2 {
+  transition-duration: 0.5s;
+}
+
+.u-section-2 .u-container-layout-3 {
+  padding: 30px;
+}
+
+.u-section-2 .u-icon-2 {
+  height: 70px;
+  width: 70px;
+  margin: 69px auto 0;
+}
+
+.u-section-2 .u-text-3 {
+  font-weight: 700;
+  transition-duration: 0.5s;
+  margin: 20px 0 0;
+}
+
+.u-section-2 .u-text-4 {
+  font-style: italic;
+  transition-duration: 0.5s;
+  margin: 20px 0 0;
+}
+
+.u-section-2 .u-list-item-3 {
+  transition-duration: 0.5s;
+}
+
+.u-section-2 .u-container-layout-4 {
+  padding: 30px;
+}
+
+.u-section-2 .u-icon-3 {
+  height: 70px;
+  width: 70px;
+  margin: 69px auto 0;
+}
+
+.u-section-2 .u-text-5 {
+  font-weight: 700;
+  transition-duration: 0.5s;
+  margin: 20px 0 0;
+}
+
+.u-section-2 .u-text-6 {
+  font-style: italic;
+  transition-duration: 0.5s;
+  margin: 20px 0 0;
+}
+
+.u-section-2 .u-list-item-4 {
+  transition-duration: 0.5s;
+}
+
+.u-section-2 .u-container-layout-5 {
+  padding: 30px;
+}
+
+.u-section-2 .u-icon-4 {
+  height: 70px;
+  width: 70px;
+  margin: 69px auto 0;
+}
+
+.u-section-2 .u-text-7 {
+  font-weight: 700;
+  transition-duration: 0.5s;
+  margin: 20px 0 0;
+}
+
+.u-section-2 .u-text-8 {
+  font-style: italic;
+  transition-duration: 0.5s;
+  margin: 20px 0 0;
+}
+
+@media (max-width: 1199px) {
+   .u-section-2 {
+    min-height: 799px;
+  }
+
+  .u-section-2 .u-list-1 {
+    width: 940px;
+  }
+
+  .u-section-2 .u-repeater-1 {
+    grid-template-columns: repeat(4, calc(25% - 15px));
+    min-height: 319px;
+  }
+
+  .u-section-2 .u-container-layout-2 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .u-section-2 .u-container-layout-3 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .u-section-2 .u-container-layout-4 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .u-section-2 .u-container-layout-5 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+   .u-section-2 {
+    min-height: 1143px;
+  }
+
+  .u-section-2 .u-list-1 {
+    width: 720px;
+  }
+
+  .u-section-2 .u-repeater-1 {
+    grid-template-columns: repeat(2, calc(50% - 10px));
+    min-height: 691px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-2 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-2 .u-list-1 {
+    width: 540px;
+  }
+
+  .u-section-2 .u-repeater-1 {
+    grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+  }
+}
+
+@media (max-width: 575px) {
+   .u-section-2 {
+    min-height: 1640px;
+  }
+
+  .u-section-2 .u-image-1 {
+    min-height: 207px;
+  }
+
+  .u-section-2 .u-list-1 {
+    width: 340px;
+    margin-top: 54px;
+  }
+
+  .u-section-2 .u-repeater-1 {
+    grid-template-columns: 100%;
+    min-height: 1250px;
+  }
+}
+
+.u-section-2 .u-list-item-1,
+.u-section-2 .u-list-item-1:before,
+.u-section-2 .u-list-item-1 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-list-item-1.u-list-item-1.u-list-item-1:hover:before {
+  background-color: #333129 !important;
+}
+
+.u-section-2 .u-list-item-2,
+.u-section-2 .u-list-item-2:before,
+.u-section-2 .u-list-item-2 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-list-item-2.u-list-item-2.u-list-item-2:hover:before {
+  background-color: #333129 !important;
+}
+
+.u-section-2 .u-list-item-3,
+.u-section-2 .u-list-item-3:before,
+.u-section-2 .u-list-item-3 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-list-item-3.u-list-item-3.u-list-item-3:hover:before {
+  background-color: #333129 !important;
+}
+
+.u-section-2 .u-list-item-4,
+.u-section-2 .u-list-item-4:before,
+.u-section-2 .u-list-item-4 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-list-item-4.u-list-item-4.u-list-item-4:hover:before {
+  background-color: #333129 !important;
+}
+
+.u-section-2 .u-text-5,
+.u-section-2 .u-text-5:before,
+.u-section-2 .u-text-5 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-container-layout:hover .u-text-5 {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-section-2 .u-text-5 {
+  color: #ffffff !important;
+}
+
+.u-section-2 .u-text-1,
+.u-section-2 .u-text-1:before,
+.u-section-2 .u-text-1 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-container-layout:hover .u-text-1 {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-section-2 .u-text-1 {
+  color: #ffffff !important;
+}
+
+.u-section-2 .u-text-3,
+.u-section-2 .u-text-3:before,
+.u-section-2 .u-text-3 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-container-layout:hover .u-text-3 {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-section-2 .u-text-3 {
+  color: #ffffff !important;
+}
+
+.u-section-2 .u-text-7,
+.u-section-2 .u-text-7:before,
+.u-section-2 .u-text-7 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-container-layout:hover .u-text-7 {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-section-2 .u-text-7 {
+  color: #ffffff !important;
+}
+
+.u-section-2 .u-text-6,
+.u-section-2 .u-text-6:before,
+.u-section-2 .u-text-6 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-container-layout:hover .u-text-6 {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-section-2 .u-text-6 {
+  color: #ffffff !important;
+}
+
+.u-section-2 .u-text-2,
+.u-section-2 .u-text-2:before,
+.u-section-2 .u-text-2 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-container-layout:hover .u-text-2 {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-section-2 .u-text-2 {
+  color: #ffffff !important;
+}
+
+.u-section-2 .u-text-4,
+.u-section-2 .u-text-4:before,
+.u-section-2 .u-text-4 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-container-layout:hover .u-text-4 {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-section-2 .u-text-4 {
+  color: #ffffff !important;
+}
+
+.u-section-2 .u-text-8,
+.u-section-2 .u-text-8:before,
+.u-section-2 .u-text-8 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-2 .u-container-layout:hover .u-text-8 {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-section-2 .u-text-8 {
+  color: #ffffff !important;
+}
+
+.u-block-d933-35:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-35:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-35:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-35:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-container-layout.hover .u-block-d933-35:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-block-d933-33:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-33:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-33:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-33:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-container-layout.hover .u-block-d933-33:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-block-d933-34:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-34:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-34:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-34:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-container-layout.hover .u-block-d933-34:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-block-d933-56:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-56:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-56:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-d933-56:not([data-block-selected]):not([data-cell-selected]).u-block-d933-56:not([data-block-selected]):not([data-cell-selected]).u-block-d933-56:not([data-block-selected]):not([data-cell-selected]):hover:before {
+  background-color: #333129 !important;
+}
+
+.u-block-d933-62:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-62:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-62:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-d933-62:not([data-block-selected]):not([data-cell-selected]).u-block-d933-62:not([data-block-selected]):not([data-cell-selected]).u-block-d933-62:not([data-block-selected]):not([data-cell-selected]):hover:before {
+  background-color: #333129 !important;
+}
+
+.u-block-d933-68:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-68:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-68:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-d933-68:not([data-block-selected]):not([data-cell-selected]).u-block-d933-68:not([data-block-selected]):not([data-cell-selected]).u-block-d933-68:not([data-block-selected]):not([data-cell-selected]):hover:before {
+  background-color: #333129 !important;
+}
+
+.u-block-d933-74:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-74:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-74:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-d933-74:not([data-block-selected]):not([data-cell-selected]).u-block-d933-74:not([data-block-selected]):not([data-cell-selected]).u-block-d933-74:not([data-block-selected]):not([data-cell-selected]):hover:before {
+  background-color: #333129 !important;
+}
+
+.u-block-d933-59:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-59:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-59:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-59:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-block-d933-59:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-block-d933-65:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-65:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-65:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-65:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-block-d933-65:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-block-d933-71:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-71:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-71:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-71:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-block-d933-71:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-block-d933-77:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-77:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-77:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-77:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-block-d933-77:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-block-d933-66:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-66:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-66:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-66:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-block-d933-66:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-block-d933-60:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-60:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-60:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-60:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-block-d933-60:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-block-d933-72:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-72:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-72:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-72:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-block-d933-72:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-block-d933-78:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-78:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-78:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-78:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-container-layout.hover .u-block-d933-78:not([data-block-selected]):not([data-cell-selected]) {
+  color: #ffffff !important;
+}
+
+.u-block-d933-61:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-61:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-61:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-61:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-container-layout.hover .u-block-d933-61:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-block-d933-67:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-67:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-67:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-67:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-container-layout.hover .u-block-d933-67:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-block-d933-73:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-73:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-73:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-73:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-container-layout.hover .u-block-d933-73:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-block-d933-79:not([data-block-selected]):not([data-cell-selected]),
+.u-block-d933-79:not([data-block-selected]):not([data-cell-selected]):before,
+.u-block-d933-79:not([data-block-selected]):not([data-cell-selected]) > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-container-layout:hover .u-block-d933-79:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}
+
+.u-container-layout.hover .u-block-d933-79:not([data-block-selected]):not([data-cell-selected]) {
+  transform: translateX(0px) translateY(-5px) scale(1) !important;
+}

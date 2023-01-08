@@ -10,24 +10,12 @@ body {
 .login-form {
   height: 250px;
   width: 400px;
-  background-color: white;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 20px 0 rgba(156, 1, 1, 0.999), 0 5px 5px 0 rgb(174, 2, 2);
   margin: 200px auto;
   padding: 40px;
   border-radius: 20px;
 }
-
-#title h2 {
-    margin: 0 0 0 0;
-    font: 400% verdana, "Trebuchet MS", arial, tahoma, sans-serif;
-    padding: 5px;
-    letter-spacing: 1px;
-    color: #d5ce00;
-    background: inherit;
-    text-align: center;
-    
-  }
-  
 
 /* Add some nice styling to the form elements */
 input[type="text"],
@@ -36,7 +24,7 @@ input[type="password"] {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(174, 0, 0);
   border-radius: 4px;
 }
 
@@ -52,5 +40,23 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #11b019;
+  background-color: #b60606;
+}
+
+.background{
+  position:ab;
+  left: 0px;
+  top: 0px;
+  width: 500px;
+  height: auto;
+}
+
+.background2{
+  
+    position:absolute;
+    right: 0px;
+    top: 0px;
+    width: 500px;
+    height: 500px;
+  
 }
