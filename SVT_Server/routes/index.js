@@ -32,6 +32,14 @@ router.get('/loginError3', function(req,res){
   res.render('loginError3', { title: 'Express' });
 })
 
+router.get('/loginError2', function(req,res){
+  res.render('loginError2', { title: 'Express' });
+})
+
+router.get('/loginError1', function(req,res){
+  res.render('loginError1', { title: 'Express' });
+})
+
 
 router.get('/loginError4', function(req,res){
   res.render('loginError4', { title: 'Express' });
@@ -83,16 +91,16 @@ router.post('/login',(req,res,next)=>{
       res.send();
     });
   }
-  else if(!username.match(onlyLettersPattern) && !password.match(onlyLettersPattern))
+  else if(!username.match(onlyLettersPattern) || !password.match(onlyLettersPattern))
   {
     //No Special characters and no numbers, please!
-    res.render('loginError1');
+    res.redirect('loginError1');
     res.end();
   }
   else
   {
     //Please Enter Email Addres and Password Details
-    res.render('loginError2');
+    res.redirect('loginError2');
     res.end();
   }
 })
