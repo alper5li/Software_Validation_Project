@@ -243,9 +243,16 @@ def randomString(length,complexity,type):
         return created_string
 
 
+def checkFieldShown():
+    if(driver.find_element(By.ID,"name") & driver.find_element(By.ID,"email") & driver.find_element(By.ID,"MessageText")):
+        return True
+    
+
+
 # for automation to sending random values with different complexity, i wrote a method :
 
 def send(complexitiyLevel):
+
     if (complexitiyLevel >3 or complexitiyLevel<0):
         print("Complexity level is out of range, bye.")
         return
@@ -253,13 +260,13 @@ def send(complexitiyLevel):
     email_field = driver.find_element(By.ID, "email")
     message_field = driver.find_element(By.ID, "MessageText")
     button = driver.find_element(By.ID, "submit")
-
+    
 
     name = randomString(10,complexitiyLevel,"name")   
     email = randomString(20,complexitiyLevel,"email")   
     message = randomString(380,complexitiyLevel,"message")   
 
-    print("["+str(complexitiyLevel)+"]")
+    print("Level => ["+str(complexitiyLevel)+"] Started.")
     print("Name : "+name)
     print("Email : "+email)
     print("Message : "+message)
@@ -278,9 +285,16 @@ def send(complexitiyLevel):
     except:
         if driver.find_element(By.ID,"IletisimButton")==False:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] failed.")
+            if(checkFieldShown):   
+                name_field.clear()
+                email_field.clear()
+                message_field.clear()
+            
         else:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] crashed.")
+            #if test crashed with alert,that means input isnt accepted, page will not redirect to error or passed site so we need to clear input fields if its crashed
             
+
             
     else:
         if driver.find_element(By.ID,"IletisimButton"):
@@ -288,6 +302,10 @@ def send(complexitiyLevel):
             return_button.click()
         else:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] failed. No Error Occured.")
+            if(checkFieldShown):   
+                name_field.clear()
+                email_field.clear()
+                message_field.clear()
             
     time.sleep(5)
     
@@ -322,7 +340,12 @@ def sendWithLength(complexitiyLevel,name_length,email_length,message_length):
                 print("Complexitiy Level ["+str(complexitiyLevel)+"] failed.")
             else:
                 print("Complexitiy Level ["+str(complexitiyLevel)+"] crashed.")
-                return_button.click()
+                #if test crashed with alert,that means input isnt accepted, page will not redirect to error or passed site so we need to clear input fields if its crashed
+                if(checkFieldShown):   
+                    name_field.clear()
+                    email_field.clear()
+                    message_field.clear()
+                
             
         else:
             if driver.find_element(By.ID,"closeBtn"):
@@ -330,15 +353,19 @@ def sendWithLength(complexitiyLevel,name_length,email_length,message_length):
                 return_button.click()
             else:
                 print("Complexitiy Level ["+str(complexitiyLevel)+"] failed. No Error Occured.")
+                if(checkFieldShown):   
+                    name_field.clear()
+                    email_field.clear()
+                    message_field.clear()
     except:
         print("Error Occured [x]")
     
     
-
+passed =0
+failed =0
 
 #sending random values which longer than before with automation  COMLPEXITY => "1" to COMPLEXITY => "3"
 for x in range(1,4):
-    
     send(x)
     
 

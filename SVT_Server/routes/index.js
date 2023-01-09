@@ -126,7 +126,7 @@ function checkAuth(req, res, next) {
 }
 
 
-router.post('/message',checkIsEmpty,(req,res)=>{
+router.post('/message',checkInput,(req,res)=>{
   let name =Buffer.from(req.body.name, 'utf-8').toString();
   let email = Buffer.from(req.body.email, 'utf-8').toString();
   let message = Buffer.from(req.body.message, 'utf-8').toString();
@@ -148,7 +148,7 @@ router.post('/message',checkIsEmpty,(req,res)=>{
 });
 
 
-function checkIsEmpty(req,res,next)
+function checkInput(req,res,next)
 {
   if(
     checkEmpty(req.body.name) && 
@@ -277,10 +277,28 @@ function checkemail(element)
   "@aim.com",
   "@bigpond.net.au"]
 
-for(let i=0;i<mailExtensions.length;i++)
+  spaceChars =[
+    " ",
+    "\t",
+    "\n",
+    "\r",
+    "\x0b",
+    "\x0c"
+  ]
+for(let mailExt of mailExtensions)
 {
-  if(element.includes(mailExtensions[i]) && !element.includes(" "))
-  return true
+  
+  if(element.includes(mailExt))
+  {
+    for(let spChars of spaceChars)
+    {
+      if(!element.includes(spChars))
+      {
+        return true;
+      }
+    }
+  }
+    
 }
 
   
