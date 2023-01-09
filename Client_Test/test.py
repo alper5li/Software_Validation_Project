@@ -94,7 +94,7 @@ button = driver.find_element(By.ID, "submit")
 
 
 #Testing with manual entries
-name_field.send_keys("@æß>£#>£$")
+name_field.send_keys("asdqwe")
 time.sleep(2)
 
 email_field.send_keys("alper.besli@st.uskudar.edu.tr")
@@ -116,11 +116,113 @@ return_button.click()
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #defining method which creates completely random strings for test, complexity declares strength and complexitiy of created string.
-def randomString(length,complexity):
+def randomString(length,complexity,type):
 
     ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     digits = '0123456789'
     punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    mailExtensions = [
+  "@gmail.com",
+  "@yahoo.com",
+  "@hotmail.com",
+  "@aol.com",
+  "@hotmail.co.uk",
+  "@hotmail.fr",
+  "@msn.com",
+  "@yahoo.fr",
+  "@wanadoo.fr",
+  "@orange.fr",
+  "@comcast.net",
+  "@yahoo.co.uk",
+  "@yahoo.com.br",
+  "@yahoo.co.in",
+  "@live.com",
+  "@rediffmail.com",
+  "@free.fr",
+  "@gmx.de",
+  "@web.de",
+  "@yandex.ru",
+  "@ymail.com",
+  "@libero.it",
+  "@outlook.com",
+  "@uol.com.br",
+  "@bol.com.br",
+  "@mail.ru",
+  "@cox.net",
+  "@hotmail.it",
+  "@sbcglobal.net",
+  "@sfr.fr",
+  "@live.fr",
+  "@verizon.net",
+  "@live.co.uk",
+  "@googlemail.com",
+  "@yahoo.es",
+  "@ig.com.br",
+  "@live.nl",
+  "@bigpond.com",
+  "@terra.com.br",
+  "@yahoo.it",
+  "@neuf.fr",
+  "@yahoo.de",
+  "@alice.it",
+  "@rocketmail.com",
+  "@att.net",
+  "@laposte.net",
+  "@facebook.com",
+  "@bellsouth.net",
+  "@yahoo.in",
+  "@hotmail.es",
+  "@charter.net",
+  "@yahoo.ca",
+  "@yahoo.com.au",
+  "@rambler.ru",
+  "@hotmail.de",
+  "@tiscali.it",
+  "@shaw.ca",
+  "@yahoo.co.jp",
+  "@sky.com",
+  "@earthlink.net",
+  "@optonline.net",
+  "@freenet.de",
+  "@t-online.de",
+  "@aliceadsl.fr",
+  "@virgilio.it",
+  "@home.nl",
+  "@qq.com",
+  "@telenet.be",
+  "@me.com",
+  "@yahoo.com.ar",
+  "@tiscali.co.uk",
+  "@yahoo.com.mx",
+  "@voila.fr",
+  "@gmx.net",
+  "@mail.com",
+  "@planet.nl",
+  "@tin.it",
+  "@live.it",
+  "@ntlworld.com",
+  "@arcor.de",
+  "@yahoo.co.id",
+  "@frontiernet.net",
+  "@hetnet.nl",
+  "@live.com.au",
+  "@yahoo.com.sg",
+  "@zonnet.nl",
+  "@club-internet.fr",
+  "@juno.com",
+  "@optusnet.com.au",
+  "@blueyonder.co.uk",
+  "@bluewin.ch",
+  "@skynet.be",
+  "@sympatico.ca",
+  "@windstream.net",
+  "@mac.com",
+  "@centurytel.net",
+  "@chello.nl",
+  "@live.ca",
+  "@aim.com",
+  "@bigpond.net.au"]
+
     whitespace = " \t\n\r\x0b\x0c"
     if complexity == 1:
         all = ascii_letters + digits 
@@ -134,7 +236,11 @@ def randomString(length,complexity):
 
         num = (random.randint(0,length)) % len(all)
         created_string += all[num]
-    return created_string
+    if(type =="email"):
+        x = random.choice(mailExtensions)
+        return created_string+x
+    else:
+        return created_string
 
 
 # for automation to sending random values with different complexity, i wrote a method :
@@ -149,9 +255,9 @@ def send(complexitiyLevel):
     button = driver.find_element(By.ID, "submit")
 
 
-    name = randomString(10,complexitiyLevel)   
-    email = randomString(20,complexitiyLevel)   
-    message = randomString(380,complexitiyLevel)   
+    name = randomString(10,complexitiyLevel,"name")   
+    email = randomString(20,complexitiyLevel,"email")   
+    message = randomString(380,complexitiyLevel,"message")   
 
     print("["+str(complexitiyLevel)+"]")
     print("Name : "+name)
@@ -175,6 +281,7 @@ def send(complexitiyLevel):
         else:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] crashed.")
             
+            
     else:
         if driver.find_element(By.ID,"IletisimButton"):
             print("Complexitiy Level ["+str(complexitiyLevel)+"] passed.")
@@ -190,9 +297,9 @@ def sendWithLength(complexitiyLevel,name_length,email_length,message_length):
         print("Complexity level is out of range, bye.")
         return
 
-    name = randomString(name_length,complexitiyLevel)   
-    email = randomString(email_length,complexitiyLevel)   
-    message = randomString(message_length,complexitiyLevel)   
+    name = randomString(name_length,complexitiyLevel,"name")   
+    email = randomString(email_length,complexitiyLevel,"email")   
+    message = randomString(message_length,complexitiyLevel,"message")   
 
     print("["+str(complexitiyLevel)+"]")
     print("Name : "+name)
@@ -203,25 +310,28 @@ def sendWithLength(complexitiyLevel,name_length,email_length,message_length):
     name_field.send_keys(name)
     email_field.send_keys(email)
     message_field.send_keys(message)
-    
     try:
+        try:
 
-        button.click()
-        time.sleep(5)
-        return_button = driver.find_element(By.ID,"IletisimButton")
+            button.click()
+            time.sleep(5)
+            return_button = driver.find_element(By.ID,"IletisimButton")
 
-    except:
-        if driver.find_element(By.ID,"closeBtn")==False:
-            print("Complexitiy Level ["+str(complexitiyLevel)+"] failed.")
-        else:
-            print("Complexitiy Level ["+str(complexitiyLevel)+"] crashed.")
+        except:
+            if driver.find_element(By.ID,"closeBtn")==False:
+                print("Complexitiy Level ["+str(complexitiyLevel)+"] failed.")
+            else:
+                print("Complexitiy Level ["+str(complexitiyLevel)+"] crashed.")
+                return_button.click()
             
-    else:
-        if driver.find_element(By.ID,"closeBtn"):
-            print("Complexitiy Level ["+str(complexitiyLevel)+"] passed.")
-            return_button.click()
         else:
-            print("Complexitiy Level ["+str(complexitiyLevel)+"] failed. No Error Occured.")
+            if driver.find_element(By.ID,"closeBtn"):
+                print("Complexitiy Level ["+str(complexitiyLevel)+"] passed.")
+                return_button.click()
+            else:
+                print("Complexitiy Level ["+str(complexitiyLevel)+"] failed. No Error Occured.")
+    except:
+        print("Error Occured [x]")
     
     
 
@@ -267,12 +377,12 @@ def Injection():
                 print("Status ["+str(Command_List.index(command)+1)+"]: failed")
             else:
                 print("Status ["+str(Command_List.index(command)+1)+"]: crashed")
-                close_button.click()
+                return_button.click()
       
         else:
             if driver.find_element(By.ID,"closeBtn"):
                 print("Status ["+str(Command_List.index(command)+1)+"]: passed")
-                close_button.click()
+                return_button.click()
             else:
                 print("Status ["+str(Command_List.index(command)+1)+"]: failed. No Error Occured.")
         

@@ -279,7 +279,7 @@ function checkemail(element)
 
 for(let i=0;i<mailExtensions.length;i++)
 {
-  if(element.includes(mailExtensions[i]))
+  if(element.includes(mailExtensions[i]) && !element.includes(" "))
   return true
 }
 
