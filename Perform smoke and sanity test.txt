@@ -1,0 +1,49 @@
+1.4.	Test execution :
+
+4.Perform Smoke and Sanity Test:
+Smoke testing and sanity testing are types of testing that are performed to verify that a 
+system is functioning correctly and is stable enough to proceed with further testing.
+
+Smoke testing is a preliminary testing method that is performed to determine 
+if the system is stable enough to proceed with further testing. 
+It is a quick and basic test that is performed to ensure that 
+the most important functions of the system are working correctly.
+
+Sanity testing is a testing method that is performed to verify that a small 
+change in the system has not caused any unintended side effects. 
+It is a quick and focused test that is performed to ensure that the system is 
+still functioning correctly after a change has been made.
+
+Here is an example of smoke testing in Python: 
+def test_smoke():
+    # Set up the test data
+    input_data = ["apple", "banana", "cherry"]
+    expected_output = ["Apple", "Banana", "Cherry"]
+
+    # Perform the smoke test
+    result = convert_to_title_case(input_data)
+    assert result == expected_output
+In this example, the convert_to_title_case function is being tested. 
+The input data is passed to the function, 
+and the result is checked against the expected output using an assert statement. 
+If the result matches the expected output, the test passes. 
+If the result is different from the expected output, 
+the test fails and an AssertionError is raised.
+
+Here is an example of sanity testing in Python:
+
+def test_sanity():
+    # Set up the test data
+    input_data = "Hello, World!"
+    expected_output = "HELLO, WORLD!"
+
+    # Perform the sanity test
+    result = convert_to_uppercase(input_data)
+    assert result == expected_output
+
+In this example, the convert_to_uppercase function is being tested. 
+The input data is passed to the function, and the result is checked 
+against the expected output using an assert statement. 
+If the result matches the expected output, the test passes. 
+If the result is different from the expected output, 
+the test fails and an AssertionError is raised.

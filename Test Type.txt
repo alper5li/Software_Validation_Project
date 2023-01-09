@@ -1,0 +1,121 @@
+Unit testing:
+This testing methodology is done during the development process by the software developers.
+The main objective of unit testing is to isolate written code to test and determine if it works as intended.
+
+The main purpose of the class is to store and retrieve person’s name. 
+So, we write set_name() function to store the data and get_name() function to retrieve name from the class.
+class Person:
+    name = []
+
+    def set_name(self, user_name):
+        self.name.append(user_name)
+        return len(self.name) - 1
+
+    def get_name(self, user_id):
+        if user_id >= len(self.name):
+            return 'There is no such user'
+        else:
+            return self.name[user_id]
+
+This unittest has 3 possible outcomes. They are mentioned below:
+
+OK: If all test cases are passed, the output shows OK.
+Failure: If any of test cases failed and raised an AssertionError exception
+Error: If any exception other than AssertionError exception is raised.
+
+İf you want more information please check this link: https://www.digitalocean.com/community/tutorials/python-unittest-unit-test-example
+
+How unit tests work:
+Test-driven development requires that developers first write failing unit tests.
+Then they write code and refactor the application until the test passes.
+
+
+Integration testing:
+
+Integration testing is conducted to evaluate the compliance of a system or component with specified functional requirements.
+It occurs after unit testing and before system testing.
+The purpose of integration testing is to verify that the components in a system work together.
+
+Here is an example of integration testing in Python:
+
+def test_integration():
+    # Set up the data for the test
+    input_data = "Hello, World!"
+    expected_output = "HELLO, WORLD!"
+
+    # Perform the integration test
+    result = convert_to_uppercase(input_data)
+    assert result == expected_output
+In this example, the convert_to_uppercase function is being tested. 
+The input data is passed to the function, and the result is checked against the expected output using an assert statement. 
+If the result matches the expected output, the test passes. 
+If the result is different from the expected output, the test fails and an AssertionError is raised.
+
+Seystem Testing:
+
+System testing is a type of software testing that checks the end-to-end functionality of a complete, integrated system. 
+It verifies that the system meets the specified requirements and is suitable for use.
+
+Here is an example of system testing in Python:
+
+def test_system():
+    # Set up the test data
+    input_data = ["apple", "banana", "cherry"]
+    expected_output = ["Apple", "Banana", "Cherry"]
+
+    # Perform the system test
+    result = convert_to_title_case(input_data)
+    assert result == expected_output
+
+In this example, the convert_to_title_case function is being tested. The input data is passed to the function, 
+and the result is checked against the expected output using an assert statement. 
+If the result matches the expected output, the test passes. 
+If the result is different from the expected output, the test fails and an AssertionError is raised.
+
+
+User Acceptance Testing: 
+
+User acceptance testing (UAT) is a type of testing that is performed by the end-user or the client 
+to verify that a system satisfies the specified acceptance criteria and is ready for delivery.
+
+Here is an example of system testing in Python:
+def test_acceptance():
+    # Set up the test data
+    input_data = "Hello, World!"
+    expected_output = "HELLO, WORLD!"
+
+    # Perform the user acceptance test
+    result = convert_to_uppercase(input_data)
+    assert result == expected_output
+
+In this example, the convert_to_uppercase function is being tested. The input data is passed to the function, 
+and the result is checked against the expected output using an assert statement. 
+If the result matches the expected output, the test passes. 
+If the result is different from the expected output, the test fails and an AssertionError is raised.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
