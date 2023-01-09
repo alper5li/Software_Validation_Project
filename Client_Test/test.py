@@ -11,7 +11,7 @@ driver = webdriver.Chrome(service=serv_obj)
 
 #opens chrome and rotates to this website.
 driver.get("http://localhost:5555/Ana-Sayfa")
-time.sleep(3)
+time.sleep(1)
 
 #maximizes current chrome window.
 driver.maximize_window()
@@ -29,15 +29,15 @@ status_check(By.ID,"Hakkimda", description)
 status_check(By.ID,"Iletisim", description)
 status_check(By.ID,"Login", description)
 
-time.sleep(4)
+time.sleep(1)
 #hamburger menu only shows when window is minimizedi, setting window size 
 driver.set_window_size(1024,768)
 
 #hamburger menu appears
-time.sleep(4)
+time.sleep(1)
 hamburger = driver.find_element(By.CLASS_NAME,"u-svg-link")
 hamburger.click()
-time.sleep(4)
+time.sleep(1)
 
 #hamburger menu rotating buttons 
 status_check(By.ID,'Ana Sayfa2', description)
@@ -45,17 +45,17 @@ status_check(By.ID,"Hakkimda2", description)
 status_check(By.ID,"Iletisim2", description)
 status_check(By.ID,"Login2", description)
 
-time.sleep(4)
+time.sleep(1)
 #Maximize window
 driver.maximize_window()
 
-time.sleep(4)
+time.sleep(1)
 
 
 #Wrote a method redirects automatically every single button in order to List one by one
 def redirect(element):
     driver.find_element(By.ID,element).click()
-    time.sleep(2)
+    time.sleep(1)
 
 navigateArray = [
     "blog1",
@@ -87,10 +87,10 @@ status_check(By.ID,"message", description)
 #Entering random values into input fields and submit 
 name_field = driver.find_element(By.ID, "name")
 email_field = driver.find_element(By.ID, "email")
-message_field = driver.find_element(By.ID, "message")
+message_field = driver.find_element(By.ID, "MessageText")
 button = driver.find_element(By.ID, "submit")
 
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 
 #Testing with manual entries
@@ -102,12 +102,18 @@ time.sleep(2)
 
 
 # due to message_field is <textarea>, it can not send keys without clicking it 
-driver.find_element(By.ID, "message").send_keys("123123213")
+message_field.send_keys("123123213")
 
 time.sleep(2)
 
 button.click()
-time.sleep(10)
+time.sleep(2)
+return_button = driver.find_element(By.ID,"IletisimButton")
+
+return_button.click()
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #defining method which creates completely random strings for test, complexity declares strength and complexitiy of created string.
 def randomString(length,complexity):
@@ -137,9 +143,10 @@ def send(complexitiyLevel):
     if (complexitiyLevel >3 or complexitiyLevel<0):
         print("Complexity level is out of range, bye.")
         return
-    name_field.clear()
-    email_field.clear()
-    message_field.clear()
+    name_field = driver.find_element(By.ID, "name")
+    email_field = driver.find_element(By.ID, "email")
+    message_field = driver.find_element(By.ID, "MessageText")
+    button = driver.find_element(By.ID, "submit")
 
 
     name = randomString(10,complexitiyLevel)   
@@ -159,29 +166,29 @@ def send(complexitiyLevel):
     try:
         button.click()
         time.sleep(5)
+        return_button = driver.find_element(By.ID,"IletisimButton")
+        
         
     except:
-        if driver.find_element(By.ID,"closeBtn")==False:
+        if driver.find_element(By.ID,"IletisimButton")==False:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] failed.")
         else:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] crashed.")
-            close_button.click()
+            
     else:
-        if driver.find_element(By.ID,"closeBtn"):
+        if driver.find_element(By.ID,"IletisimButton"):
             print("Complexitiy Level ["+str(complexitiyLevel)+"] passed.")
-            close_button.click()
+            return_button.click()
         else:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] failed. No Error Occured.")
+            
     time.sleep(5)
+    
 
 def sendWithLength(complexitiyLevel,name_length,email_length,message_length):
     if (complexitiyLevel >3 or complexitiyLevel<0):
         print("Complexity level is out of range, bye.")
         return
-    name_field.clear()
-    email_field.clear()
-    message_field.clear()
-
 
     name = randomString(name_length,complexitiyLevel)   
     email = randomString(email_length,complexitiyLevel)   
@@ -201,16 +208,18 @@ def sendWithLength(complexitiyLevel,name_length,email_length,message_length):
 
         button.click()
         time.sleep(5)
+        return_button = driver.find_element(By.ID,"IletisimButton")
+
     except:
         if driver.find_element(By.ID,"closeBtn")==False:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] failed.")
         else:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] crashed.")
-            close_button.click()
+            
     else:
         if driver.find_element(By.ID,"closeBtn"):
             print("Complexitiy Level ["+str(complexitiyLevel)+"] passed.")
-            close_button.click()
+            return_button.click()
         else:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] failed. No Error Occured.")
     
@@ -227,6 +236,8 @@ for x in range(1,4):
 for x in range(1,4):
     sendWithLength(x,100,200,500)
 
+
+time.sleep(100)
 #I wrote a method which automatically tries SQL Injections to input fields individually.
 def Injection():
     Command_List = [
@@ -249,6 +260,7 @@ def Injection():
         try:
             button.click()
             time.sleep(5)
+            return_button.click()
             
         except:
             if driver.find_element(By.ID,"closeBtn")==False:

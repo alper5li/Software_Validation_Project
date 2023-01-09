@@ -4,6 +4,7 @@ let express = require('express');
 let controlling = require('../public/javascripts/login');
 let router = express.Router();
 let database = require('../public/javascripts/database');
+const e = require('express');
 
 
 // controlling(username,password) methodu username ve passwordu kontrol edip injection önlemi alacak.
@@ -45,6 +46,9 @@ router.get('/loginError4', function(req,res){
   res.render('loginError4', { title: 'Express' });
 })
 
+router.get('/IletisimErrorSpecial', function(req,res){
+  res.render('IletisimErrorSpecial', { title: 'Express' });
+})
 
 
 router.get('/login', function(req,res){
@@ -149,13 +153,16 @@ function checkIsEmpty(req,res,next)
   if(
     checkEmpty(req.body.name) && 
     checkEmpty(req.body.email) && 
-    checkEmpty(req.body.message) 
+    checkEmpty(req.body.message) &&
+    checkemail(req.body.email) &&
+    checkSpecial(req.body.name) &&
+    checkSpecial(req.body.message)
     )
     {
       next();
     }
     else{
-      res.send("Message didnt sent !")
+      res.redirect("IletisimErrorSpecial")
     }
     
 }
@@ -165,4 +172,152 @@ function checkEmpty(element)
 {
   return !(element === null || element === "");
 }
+
+function checkemail(element)
+{
+  mailExtensions = [
+  "@gmail.com",
+  "@yahoo.com",
+  "@hotmail.com",
+  "@aol.com",
+  "@hotmail.co.uk",
+  "@hotmail.fr",
+  "@msn.com",
+  "@yahoo.fr",
+  "@wanadoo.fr",
+  "@orange.fr",
+  "@comcast.net",
+  "@yahoo.co.uk",
+  "@yahoo.com.br",
+  "@yahoo.co.in",
+  "@live.com",
+  "@rediffmail.com",
+  "@free.fr",
+  "@gmx.de",
+  "@web.de",
+  "@yandex.ru",
+  "@ymail.com",
+  "@libero.it",
+  "@outlook.com",
+  "@uol.com.br",
+  "@bol.com.br",
+  "@mail.ru",
+  "@cox.net",
+  "@hotmail.it",
+  "@sbcglobal.net",
+  "@sfr.fr",
+  "@live.fr",
+  "@verizon.net",
+  "@live.co.uk",
+  "@googlemail.com",
+  "@yahoo.es",
+  "@ig.com.br",
+  "@live.nl",
+  "@bigpond.com",
+  "@terra.com.br",
+  "@yahoo.it",
+  "@neuf.fr",
+  "@yahoo.de",
+  "@alice.it",
+  "@rocketmail.com",
+  "@att.net",
+  "@laposte.net",
+  "@facebook.com",
+  "@bellsouth.net",
+  "@yahoo.in",
+  "@hotmail.es",
+  "@charter.net",
+  "@yahoo.ca",
+  "@yahoo.com.au",
+  "@rambler.ru",
+  "@hotmail.de",
+  "@tiscali.it",
+  "@shaw.ca",
+  "@yahoo.co.jp",
+  "@sky.com",
+  "@earthlink.net",
+  "@optonline.net",
+  "@freenet.de",
+  "@t-online.de",
+  "@aliceadsl.fr",
+  "@virgilio.it",
+  "@home.nl",
+  "@qq.com",
+  "@telenet.be",
+  "@me.com",
+  "@yahoo.com.ar",
+  "@tiscali.co.uk",
+  "@yahoo.com.mx",
+  "@voila.fr",
+  "@gmx.net",
+  "@mail.com",
+  "@planet.nl",
+  "@tin.it",
+  "@live.it",
+  "@ntlworld.com",
+  "@arcor.de",
+  "@yahoo.co.id",
+  "@frontiernet.net",
+  "@hetnet.nl",
+  "@live.com.au",
+  "@yahoo.com.sg",
+  "@zonnet.nl",
+  "@club-internet.fr",
+  "@juno.com",
+  "@optusnet.com.au",
+  "@blueyonder.co.uk",
+  "@bluewin.ch",
+  "@skynet.be",
+  "@sympatico.ca",
+  "@windstream.net",
+  "@mac.com",
+  "@centurytel.net",
+  "@chello.nl",
+  "@live.ca",
+  "@aim.com",
+  "@bigpond.net.au"]
+
+for(let i=0;i<mailExtensions.length;i++)
+{
+  if(element.includes(mailExtensions[i]))
+  return true
+}
+
+  
+  
+  
+
+  
+
+
+  
+}
+
+function checkSpecial(element)
+{
+  specialChars =[
+    "!",
+    "@",
+    "'",
+    "-",
+    "_",
+    "#",
+    "&",
+    "/",
+    "=",
+    "^",
+    ">",
+    "<",
+    '"',
+  ]
+
+  
+for(let i=0;i<specialChars.length;i++)
+{
+  if(element.includes(mailExtensions[i]))
+  return true
+}
+
+}
+
 module.exports = router;
