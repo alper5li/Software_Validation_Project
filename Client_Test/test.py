@@ -282,9 +282,10 @@ def send(complexitiyLevel):
         return_button = driver.find_element(By.ID,"IletisimButton")
         
         
-    except:
+    except :
         if driver.find_element(By.ID,"IletisimButton")==False:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] failed.")
+            #if test failed with alert,that means input isnt accepted, page will not redirect to error or passed site so we need to clear input fields if its crashed
             if(checkFieldShown):   
                 name_field.clear()
                 email_field.clear()
@@ -292,7 +293,6 @@ def send(complexitiyLevel):
             
         else:
             print("Complexitiy Level ["+str(complexitiyLevel)+"] crashed.")
-            #if test crashed with alert,that means input isnt accepted, page will not redirect to error or passed site so we need to clear input fields if its crashed
             
 
             
