@@ -1,0 +1,17 @@
+
+
+spaceChars in message field occurs error : [
+    " ",
+    "\t",
+    "\n",
+    "\r",
+    "\x0b",
+    "\x0c"
+  ]
+
+
+revised with middleware function 
+!element.includes(spChars)
+
+__________________________________________________________________________________________________________________________________________________
+
