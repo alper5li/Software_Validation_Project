@@ -1,6 +1,6 @@
 var jsdom = require("jsdom");
 var JSDOM = jsdom.JSDOM;
-global.document = new JSDOM('../../views/login.hbs').window.document;
+let document = new JSDOM('../../views/login.hbs').window.document;
 const username = document.getElementById('username');
 const password = document.getElementById('password');
 const form = document.getElementById('login');
@@ -14,25 +14,23 @@ const green = '#4CAF50';
 const red = '#F44336';
 
 
+
+
 // Handle form
 
-if (form !== null) {
-
-  submit.addEventListener('onclick', function (event) 
+function submitFunction()
+{
+  if 
+  (
+    validateUserName() && validatePassword()
+  ) 
   {
-    event.preventDefault();
-    if 
-    (
-      validateUserName() && validatePassword()
-    ) 
-    {
-      this.submit();
-    }
-    else 
-    {
-      alert("No");
-    }
-  });
+    this.submitFunction();
+  }
+  else 
+  {
+    alert("No");
+  }
 }
 
 
@@ -64,9 +62,4 @@ function isEmpty(value) {
   return value === '';
 }
 
-function controlling(username,password)
-{
 
-}
-
-module.exports = controlling;

@@ -1,11 +1,9 @@
 let { query } = require('express');
 let express = require('express');
-//const { response, request } = require('../app');
-let controlling = require('../public/javascripts/login');
 let router = express.Router();
 let database = require('../public/javascripts/database');
-const e = require('express');
 
+//const { response, request } = require('../app');
 
 // controlling(username,password) methodu username ve passwordu kontrol edip injection önlemi alacak.
 
@@ -14,7 +12,47 @@ const e = require('express');
 /* GET home page. */
 router.get('/', function(req, res) {
   res.redirect('Ana-Sayfa');
+  
 });
+
+router.get('/adminPage',checkAuth,function(req,res){
+  console.log(req.body.user_id);
+  res.status(202).render('adminPage',{ title: 'Express',session: req.session});
+  
+})
+
+router.get('/messageData',checkAuth,function(req,res){
+  console.log(req.body.user_id);
+  
+  res.send(htmlx());
+})
+
+
+
+function htmlx(){
+  query = "SELECT * FROM messages;";
+  database.query(query,(err,data)=>{
+    if(err)console.log(err)
+    else
+    {
+      let txt = "<table>";
+      for(let messages of data)
+      {
+        
+        txt+=`<td>${messages.ID}</td>`;
+        txt+=`<td>${messages.name}</td>`;
+        txt+=`<td>${messages.email}</td>`;
+        txt+=`<td>${messages.message}</td>`;
+        
+        txt+="</tr>";
+      }
+      txt += "</table>";
+      return txt;
+
+    }
+  })
+}
+console.log(htmlx())
 
 router.get('/Ana-Sayfa', function(req,res){
   res.render('Ana-Sayfa', { title: 'Express',session: req.session});
@@ -28,19 +66,17 @@ router.get('/Iletisim', function(req,res){
   res.render('Iletisim', { title: 'Express' });
 })
 
-
-router.get('/loginError3', function(req,res){
-  res.render('loginError3', { title: 'Express' });
+router.get('/loginError1', function(req,res){
+  res.render('loginError1', { title: 'Express' });
 })
 
 router.get('/loginError2', function(req,res){
   res.render('loginError2', { title: 'Express' });
 })
 
-router.get('/loginError1', function(req,res){
-  res.render('loginError1', { title: 'Express' });
-})
-
+router.get('/loginError3', function(req,res){
+  res.render('loginError3', { title: 'Express' });
+})  
 
 router.get('/loginError4', function(req,res){
   res.render('loginError4', { title: 'Express' });
@@ -50,6 +86,9 @@ router.get('/IletisimErrorSpecial', function(req,res){
   res.render('IletisimErrorSpecial', { title: 'Express' });
 })
 
+router.get('/IletisimErrorEmpty', function(req,res){
+  res.render('IletisimErrorEmpty', { title: 'Express' });
+})
 
 router.get('/login', function(req,res){
   res.render('login', { title: 'Express' });
@@ -79,7 +118,7 @@ router.post('/login',(req,res,next)=>{
           {
             req.session.user_id = user.ID;
             console.log("user ID = "+req.session.user_id);
-            res.redirect("/secret")
+            res.redirect("/adminPage")
           }
           else
           {
@@ -150,10 +189,15 @@ router.post('/message',checkInput,(req,res)=>{
 
 function checkInput(req,res,next)
 {
-  if(
+  if
+  (
     checkEmpty(req.body.name) && 
     checkEmpty(req.body.email) && 
-    checkEmpty(req.body.message) &&
+    checkEmpty(req.body.message) 
+  )
+  {
+    if
+    (
     checkemail(req.body.email) &&
     checkSpecial(req.body.name) &&
     checkSpecial(req.body.message)
@@ -161,9 +205,20 @@ function checkInput(req,res,next)
     {
       next();
     }
-    else{
+    else
+    {
       res.redirect("IletisimErrorSpecial")
     }
+  }
+  else 
+  {
+    res.redirect("IletisimErrorEmpty")
+  }
+  
+  
+    
+    
+ 
     
 }
 
@@ -314,8 +369,6 @@ for(let mailExt of mailExtensions)
 function checkSpecial(element)
 {
   specialChars =[
-    "!",
-    "@",
     "'",
     "-",
     "_",
@@ -332,7 +385,7 @@ function checkSpecial(element)
   
 for(let i=0;i<specialChars.length;i++)
 {
-  if(element.includes(mailExtensions[i]))
+  if(!element.includes(specialChars[i]))
   return true
 }
 

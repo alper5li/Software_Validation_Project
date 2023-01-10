@@ -11,9 +11,9 @@ let connection = mysql.createConnection({
 
 connection.connect((err)=>{
     if(err) console.log("Database connection error :"+err);
-    console.log("Database connected!");
-   
+    else console.log("Database connected!");
   })
+  
 
 
   module.exports = connection;
