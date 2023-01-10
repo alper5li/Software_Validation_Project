@@ -474,6 +474,10 @@ function getHTMLMessage(data)
   `
 }
 
+router.get('*',(req,res)=>
+{
+  res.status(404).render('403');
+})
 
 module.exports = router;
 
