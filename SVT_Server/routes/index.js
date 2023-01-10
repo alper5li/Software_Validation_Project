@@ -21,38 +21,11 @@ router.get('/adminPage',checkAuth,function(req,res){
   
 })
 
-router.get('/messageData',checkAuth,function(req,res){
-  console.log(req.body.user_id);
-  
-  res.send(htmlx());
-})
+router.get('/messageData',checkAuth,getData);
 
 
 
-function htmlx(){
-  query = "SELECT * FROM messages;";
-  database.query(query,(err,data)=>{
-    if(err)console.log(err)
-    else
-    {
-      let txt = "<table>";
-      for(let messages of data)
-      {
-        
-        txt+=`<td>${messages.ID}</td>`;
-        txt+=`<td>${messages.name}</td>`;
-        txt+=`<td>${messages.email}</td>`;
-        txt+=`<td>${messages.message}</td>`;
-        
-        txt+="</tr>";
-      }
-      txt += "</table>";
-      return txt;
 
-    }
-  })
-}
-console.log(htmlx())
 
 router.get('/Ana-Sayfa', function(req,res){
   res.render('Ana-Sayfa', { title: 'Express',session: req.session});
@@ -391,4 +364,116 @@ for(let i=0;i<specialChars.length;i++)
 
 }
 
+
+function getData(req,res)
+{
+    
+    
+    
+    query = "SELECT * FROM messages;";
+  
+    database.query(query,function(err,data)
+    {
+    if(err) throw err;
+    txt = `<table class="table table-dark">`;
+    txt+=`<thead>`
+    txt+=`<tr>`;
+    txt+=`<th>ID</th>`;
+    txt+=`<th>Name</th>`;
+    txt+=`<th>E-mail</th>`;
+    txt+=`<th>Message</th>`;
+    txt+=`</tr>`;
+    txt+=`</thead>`
+
+    for(let messages of data)
+          {
+            txt+=`<tbody>`;
+            txt+=`<tr id="${messages.ID}">`;
+            txt+=`<td>${messages.ID}</td>`;
+            txt+=`<td>${messages.name}</td>`;
+            txt+=`<td>${messages.email}</td>`;
+            txt+=`<td>${messages.message}</td>`;
+            txt+=`</tr>`;
+            txt+=`</tbody>`;
+          }
+        txt += `</table>`;
+    console.log("txt:" +txt)
+    res.status(200).send(getHTMLMessage(txt));
+      }
+    )
+    
+
+}
+
+
+
+
+
+function getHTMLMessage(data)
+{
+  return `<!DOCTYPE html>
+  <html>
+  <head>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" href="/static/stylesheets/nicepage.css" media="screen">
+    <link rel='stylesheet' href='/static/stylesheets/secret.css' />
+    <link rel='stylesheet' href='/static/stylesheets/login.css' />
+    <link id="u-theme-google-font" rel="stylesheet" href="/static/stylesheets/googleapi1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script class="u-script" type="text/javascript" src="/static/javascripts/jquery.js" defer></script>
+    <script class="u-script" type="text/javascript" src="/static/javascripts/nicepage.js" defer></script>
+  </head>
+  <body class="u-body u-xl-mode" data-lang="tr">
+  
+    <header class="u-clearfix u-grey-90 u-header u-header" id="sec-405b"><div class="u-clearfix u-sheet u-sheet-1">
+          <a href="Ana-Sayfa" class="u-image u-logo u-image-1" data-image-width="4000" data-image-height="4000">
+            <img src="/static/images/Dragon-logo-symbol-on-transparent-background-PNG.png" class="u-logo-image u-logo-image-1">
+          </a>
+          <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+            <div class="menu-collapse" style="font-size: 1.5rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
+              <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-text-shadow u-custom-text-shadow-blur u-custom-text-shadow-color u-custom-text-shadow-transparency u-custom-text-shadow-x u-custom-text-shadow-y u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+                <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+                <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+  </g></svg>
+              </a>
+            </div>
+            <div class="u-custom-menu u-nav-container">
+              <ul class="u-nav u-spacing-30 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-1 u-border-hover-palette-3-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-palette-3-light-1 u-text-white" id="Ana Sayfa" href="Ana-Sayfa" style="padding: 8px 22px;">Ana Sayfa</a>
+  </li><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-1 u-border-hover-palette-3-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-palette-3-light-1 u-text-white" id="Hakkimda" href="Hakkimda" style="padding: 8px 22px;">Hakkımda</a>
+  </li><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-1 u-border-hover-palette-3-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-palette-3-light-1 u-text-white" id="Iletisim" href="Iletisim" style="padding: 8px 22px;">İletişim</a>
+  </li><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-1 u-border-hover-palette-3-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-palette-3-light-1 u-text-white" id="Login" href="login" style="padding: 8px 22px;">Giriş Yap</a>
+  </li></ul>
+            </div>
+            <div class="u-custom-menu u-nav-container-collapse">
+              <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                <div class="u-inner-container-layout u-sidenav-overflow">
+                  <div class="u-menu-close"></div>
+                  <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" id="Ana Sayfa2" href="Ana-Sayfa">Ana Sayfa</a>
+  </li><li class="u-nav-item"><a class="u-button-style u-nav-link" id="Hakkimda2" href="Hakkimda">Hakkımda</a>
+  </li><li class="u-nav-item"><a class="u-button-style u-nav-link" id="Iletisim2" href="Iletisim">İletişim</a>
+  </li><li class="u-nav-item"><a class="u-button-style u-nav-link" id="Login2" href="login">Giriş Yap</a>
+  </li></ul>
+                </div>
+              </div>
+              <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+            </div>
+          </nav>
+          <h1 class="u-custom-font u-font-georgia u-text u-text-grey-30 u-title u-text-1" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-delay="0">Alper Be​şli </h1>
+        </div></header>
+    <div>
+      <h2>Message Inbox</h2>
+    </div>
+    <div id="MessageBox">
+      ${data}
+    </div>
+  </body>
+  </html>
+  `
+}
+
+
 module.exports = router;
+
