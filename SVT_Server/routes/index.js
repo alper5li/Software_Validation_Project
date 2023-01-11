@@ -67,7 +67,7 @@ router.get('/IletisimErrorEmail', function(req,res){
   res.render('IletisimErrorEmail', { title: 'Express' });
 })
 
-router.get('/login', function(req,res){
+router.get('/login',checkattempt, function(req,res){
   res.render('login', { title: 'Express' });
 })
 
@@ -77,12 +77,35 @@ router.get('/secret',checkAuth,(req,res)=>{
   res.status(202).render('secret')
 })
 
+function checkattempt(req,res,next)
+{
+  if(req.session.user_id == "DISABLED.")
+  {
+    res.render('403')
+  }
+  else
+  {
+    next();
+  }
+}
+
+let attemptCount =0;
 router.post('/login',(req,res,next)=>{
   let username = req.body.username;
   let password = req.body.password;
   const onlyLettersPattern = /^[a-zA-Z0-9.]*$/;
-
-  if(
+  
+  if(req.session.user_id == "DISABLED.")
+  {
+    console.log("TEST");
+    res.render('403');
+    setTimeout(function()
+    {
+      attemptCount =0;
+      req.session.user_id="";
+    }, 15000);
+  }
+  else if(
 
     username.match(onlyLettersPattern) && 
     password.match(onlyLettersPattern) &&
@@ -92,6 +115,7 @@ router.post('/login',(req,res,next)=>{
     checkEmpty(password)
   )
   {
+    console.log(attemptCount)
     // SQL INJECTION WITH (')
     query = `SELECT * FROM users WHERE username ='${username}'`;
     database.query(query,(error,data)=>{
@@ -107,6 +131,11 @@ router.post('/login',(req,res,next)=>{
           }
           else
           {
+            attemptCount++;
+            if(attemptCount == 4)
+            {
+              req.session.user_id="DISABLED."
+            }
             res.redirect("loginError3");
           
           }
@@ -114,6 +143,12 @@ router.post('/login',(req,res,next)=>{
       }
       else
       {
+        
+        attemptCount++;
+        if(attemptCount == 4)
+        {
+          req.session.user_id="DISABLED."
+        }
         res.redirect("loginError4");
       }
       res.send();
@@ -121,12 +156,24 @@ router.post('/login',(req,res,next)=>{
   }
   else if(!username.match(onlyLettersPattern) || !password.match(onlyLettersPattern))
   {
+    
+    attemptCount++;
+    if(attemptCount == 4)
+    {
+      req.session.user_id="DISABLED."
+    }
     //No Special characters and no numbers, please!
     res.redirect('loginError1');
     res.end();
   }
   else
   {
+    
+    attemptCount++;
+    if(attemptCount == 4)
+    {
+      req.session.user_id="DISABLED."
+    }
     //Please Enter Email Addres and Password Details
     res.redirect('loginError2');
     res.end();

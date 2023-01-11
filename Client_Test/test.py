@@ -24,6 +24,300 @@ def status_check(ByWhat,element,description):
     print(element+" "+description+" is working : " + str(driver.find_element(ByWhat, element).is_enabled()))
     print(element+" "+description+" is displayed : " + str(driver.find_element(ByWhat, element).is_displayed()))
 
+def randomString(length,complexity):
+
+    ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    digits = '0123456789'
+    punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    whitespace = " \t\n\r\x0b\x0c"
+    
+    if complexity == 1:
+        all = ascii_letters
+    elif complexity == 2:
+        all = punctuation
+    elif complexity ==3:
+        all = ascii_letters + digits + punctuation 
+    elif complexity ==4:
+        all = ascii_letters + digits + punctuation + whitespace    
+
+    created_string =""
+    for x in range(length):
+        num = (random.randint(0,length)) % len(all)
+        created_string += all[num]
+    
+    return created_string
+
+
+login = driver.find_element(By.ID,"Login").click()
+
+uname = randomString(5,1)
+passs = randomString(5,1)
+
+username = driver.find_element(By.ID,"username").send_keys(uname)
+password = driver.find_element(By.ID,"password").send_keys(passs)
+
+driver.back()
+
+login = driver.find_element(By.ID,"Login").click()
+
+if(uname != driver.find_element(By.ID,"password").get_attribute("value")):
+    print("First Entered Password => ["+uname+"]")
+    print("Current Field Data     => ["+uname+"]")
+    print("PASSED")
+else :
+    print("First Entered Password => ["+uname+"]")
+    print("Current Field Data     => ["+uname+"]")
+    print("FAILED")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+""""
+
+#After 4 attempts we will block the user id and cant reach the login page.
+def randomString(length,complexity):
+
+    ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    digits = '0123456789'
+    punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    whitespace = " \t\n\r\x0b\x0c"
+    
+    if complexity == 1:
+        all = ascii_letters
+    elif complexity == 2:
+        all = punctuation
+    elif complexity ==3:
+        all = ascii_letters + digits + punctuation + whitespace    
+
+    created_string =""
+    for x in range(length):
+        num = (random.randint(0,length)) % len(all)
+        created_string += all[num]
+    
+    return created_string
+
+
+
+login = driver.find_element(By.ID,"Login").click()
+
+uname = randomString(5,2)
+passs = randomString(5,2)
+username = driver.find_element(By.ID,"username").send_keys(uname)
+password = driver.find_element(By.ID,"password").send_keys(passs)
+submit = driver.find_element(By.ID,"submitbutton").click()
+
+time.sleep(3)
+if(driver.find_element(By.ID,"LoginButtonSpecial")):
+    print("Username => ["+str(uname)+"]")
+    print("Password => ["+str(passs)+"]")
+    print("PASSED.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+login = driver.find_element(By.ID,"Login").click()
+
+username = driver.find_element(By.ID,"username").send_keys(randomString(5,1))
+password = driver.find_element(By.ID,"password").send_keys(randomString(6,1))
+submit = driver.find_element(By.ID,"submitbutton").click()
+driver.find_element(By.ID,"LoginButton").click()
+username = driver.find_element(By.ID,"username").send_keys(randomString(5,1))
+password = driver.find_element(By.ID,"password").send_keys(randomString(6,1))
+submit = driver.find_element(By.ID,"submitbutton").click()
+driver.find_element(By.ID,"LoginButton").click()
+username = driver.find_element(By.ID,"username").send_keys(randomString(5,1))
+password = driver.find_element(By.ID,"password").send_keys(randomString(6,1))
+submit = driver.find_element(By.ID,"submitbutton").click()
+driver.find_element(By.ID,"LoginButton").click()
+username = driver.find_element(By.ID,"username").send_keys(randomString(5,1))
+password = driver.find_element(By.ID,"password").send_keys(randomString(6,1))
+submit = driver.find_element(By.ID,"submitbutton").click()
+driver.find_element(By.ID,"LoginButton").click()
+
+if(driver.find_element(By.ID,"Blocked")):
+    print("PASSED")
+else:
+    print("FAILED")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+blog1 = driver.find_element(By.ID,"blog1")
+fontSize = int(blog1.value_of_css_property("font-size")[:-2])
+driver.set_window_size(800,768)
+driver.maximize_window()
+driver.find_element(By.ID,"Login").click()
+driver.set_window_size(800,768)
+driver.maximize_window()
+driver.find_element(By.ID,"Ana Sayfa").click()
+driver.set_window_size(800,768)
+driver.maximize_window()
+blog_test = driver.find_element(By.ID,"blog1")
+fontSize_test = int(blog_test.value_of_css_property("font-size")[:-2])
+
+if(fontSize == fontSize_test):
+    print("PASSED.")
+    print("Size 1 =>"+str(fontSize))
+    print("Size 2 =>"+str(fontSize_test))
+else:
+    print("FAIELED.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+slideButton = driver.find_element(By.ID,"toRight")
+
+fontSize = slideButton.value_of_css_property("font-size")
+try:
+    if (int(fontSize[:-2]) < 20 )& (int(fontSize[:-2]) > 15):
+        print("PASSED.")
+    else:
+        print("FAILED.")
+except (NoSuchElementException):
+    print("Element Not Found.")
+
+time.sleep(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Wrote a method redirects automatically every single button in order to List one by one
+def redirect(element):
+    try:
+        driver.find_element(By.ID,element).click()
+        print("["+element+"] => PASSED.")
+    except(NoSuchElementException):
+        print("["+element+"] => FAILED.")
+navigateArray = [
+    "blog1",
+    "Ana Sayfa",
+    "blog2",
+    "Ana Sayfa",
+    "blog3",
+    "Ana Sayfa",
+    "blog4",
+    "Ana Sayfa",
+    "Hakkimda",
+    "Ana Sayfa",
+    "Iletisim",
+    "Ana Sayfa",
+    "Login",
+    "Ana Sayfa"
+]
+print("[Test Starting]")
+for id in navigateArray:
+    redirect(id)
+print("[Test Ended]")
+
+
+
+headers = driver.find_elements(By.ID,"sec-405b")
+
+standard_size = 16
+
+try:
+    for header in headers:
+        size = header.value_of_css_property("font-size")
+        print("size :=>"+size)
+        print(size[:-2])
+        if (int(size[:-2]) != standard_size):
+            print("Failed")
+        else:
+            print("Passed")
+        
+except (NoSuchElementException):
+    print("Element Not Found.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #hamburger menu only shows when window is minimizedi, setting window size 
 
 
@@ -45,8 +339,6 @@ except:
     print("FAILED")
 
 
-
-""""
 
 navigateArray = [
     "Ana Sayfa2",
