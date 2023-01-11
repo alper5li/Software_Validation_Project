@@ -63,6 +63,10 @@ router.get('/IletisimErrorEmpty', function(req,res){
   res.render('IletisimErrorEmpty', { title: 'Express' });
 })
 
+router.get('/IletisimErrorEmail', function(req,res){
+  res.render('IletisimErrorEmail', { title: 'Express' });
+})
+
 router.get('/login', function(req,res){
   res.render('login', { title: 'Express' });
 })
@@ -78,7 +82,15 @@ router.post('/login',(req,res,next)=>{
   let password = req.body.password;
   const onlyLettersPattern = /^[a-zA-Z0-9.]*$/;
 
-  if(username.match(onlyLettersPattern) && password.match(onlyLettersPattern))
+  if(
+
+    username.match(onlyLettersPattern) && 
+    password.match(onlyLettersPattern) &&
+    checkSpecial(username) &&
+    checkSpecial(password) &&
+    checkEmpty(username) &&
+    checkEmpty(password)
+  )
   {
     // SQL INJECTION WITH (')
     query = `SELECT * FROM users WHERE username ='${username}'`;
@@ -170,17 +182,21 @@ function checkInput(req,res,next)
   )
   {
     if
-    (
-    checkemail(req.body.email) &&
-    checkSpecial(req.body.name) &&
-    checkSpecial(req.body.message)
-    )
+    (checkemail(req.body.email))
     {
-      next();
+      if(checkSpecial(req.body.name) && checkSpecial(req.body.message))
+      {
+        next();
+      }
+      else 
+      {
+        res.redirect("IletisimErrorSpecial");
+      }
+      
     }
     else
     {
-      res.redirect("IletisimErrorSpecial")
+      res.redirect("IletisimErrorEmail");
     }
   }
   else 
@@ -329,14 +345,6 @@ for(let mailExt of mailExtensions)
     
 }
 
-  
-  
-  
-
-  
-
-
-  
 }
 
 function checkSpecial(element)
@@ -363,7 +371,6 @@ for(let i=0;i<specialChars.length;i++)
 }
 
 }
-
 
 function getData(req,res)
 {
@@ -404,10 +411,6 @@ function getData(req,res)
     
 
 }
-
-
-
-
 
 function getHTMLMessage(data)
 {
