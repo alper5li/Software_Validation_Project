@@ -48,7 +48,70 @@ def randomString(length,complexity):
     return created_string
 
 
-login = driver.find_element(By.ID,"Login").click()
+
+
+
+slideButton_Right = driver.find_element(By.ID,"toRight")
+slideButton_Left = driver.find_element(By.ID,"toLeft")
+
+fontSize_Right = slideButton_Right.value_of_css_property("font-size")
+fontSize_Left = slideButton_Left.value_of_css_property("font-size")
+try:
+    if (int(fontSize_Right[:-2]) < 20 ) & (int(fontSize_Right[:-2]) > 15 ) & (int(fontSize_Left[:-2]) < 20 ) & (int(fontSize_Left[:-2]) > 15 ):
+        print("[PASSED]")
+    else:
+        print("FAILED.")
+except (NoSuchElementException):
+    print("Element Not Found.")
+
+time.sleep(1)
+
+
+
+
+
+
+
+""""
+def loginAttempt(username,password):
+    driver.find_element(By.ID,"Login").click()
+
+    username = driver.find_element(By.ID,"username").send_keys(username)
+    password = driver.find_element(By.ID,"password").send_keys(password)
+
+    driver.find_element(By.ID,"submitbutton").click()
+    if(driver.find_element(By.ID,"secretPage").is_displayed()):
+        print("[TEST CASE PASSED.]")
+        driver.find_element(By.ID,"logoutButton").click()
+        
+        
+    else:
+        print("[TEST CASE FAILED.]")
+        
+        
+try:
+    print("TEST STARTED")
+    print("___________________")
+    print("[1] :")
+    loginAttempt("alperbesli","topsecretpassword")
+    print("[2] :")
+    loginAttempt("johnwick13","daisy")
+    print("[3] :")
+    loginAttempt("Atheros","a36bbe1adcb38f1c")
+
+except (NoSuchElementException):
+    print("Element not found error.")
+finally:
+    print("___________________")
+    print("TEST IS OVER...")
+
+
+
+
+
+
+
+
 
 uname = randomString(5,1)
 passs = randomString(5,1)
@@ -84,7 +147,7 @@ else :
 
 
 
-""""
+
 
 #After 4 attempts we will block the user id and cant reach the login page.
 def randomString(length,complexity):
