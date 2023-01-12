@@ -79,9 +79,16 @@ router.get('/secret',checkAuth,(req,res)=>{
 
 function checkattempt(req,res,next)
 {
+  console.log("req.body.user_id=>"+req.body.user_id);
+
   if(req.session.user_id == "DISABLED.")
   {
     res.render('403')
+    setTimeout(function()
+    {
+      attemptCount =0;
+      req.session.user_id="";
+    }, 15000);
   }
   else
   {
@@ -89,23 +96,14 @@ function checkattempt(req,res,next)
   }
 }
 
+
 let attemptCount =0;
 router.post('/login',(req,res,next)=>{
   let username = req.body.username;
   let password = req.body.password;
   const onlyLettersPattern = /^[a-zA-Z0-9.]*$/;
   
-  if(req.session.user_id == "DISABLED.")
-  {
-    console.log("TEST");
-    res.render('403');
-    setTimeout(function()
-    {
-      attemptCount =0;
-      req.session.user_id="";
-    }, 15000);
-  }
-  else if(
+  if(
 
     username.match(onlyLettersPattern) && 
     password.match(onlyLettersPattern) &&
@@ -181,7 +179,7 @@ router.post('/login',(req,res,next)=>{
 })
 
 router.get('/logout', function (req, res) {
-  delete req.session.destroy();
+  req.session.destroy();
   res.redirect('/login');
 });    
 
