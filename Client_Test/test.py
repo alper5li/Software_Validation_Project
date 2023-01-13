@@ -12,12 +12,66 @@ serv_obj=Service("./chromedriver.exe")
 driver = webdriver.Chrome(service=serv_obj)
 
 #opens chrome and rotates to this website.
-driver.get("http://localhost:5555/Ana-Sayfa")
+driver.get("http://localhost:5555/")
 time.sleep(1)
+driver.maximize_window()
+def login():
+    driver.find_element(By.ID,"username").send_keys("alperbesli")
+    driver.find_element(By.ID,"password").send_keys("topsecretpassword")
+    driver.find_element(By.ID,"submitbutton").click()
+
+
+Test_Name = "Pepe The Cat"
+Test_Email ="pepethecat@hotmail.com"
+Test_Message="Change The World, My Final Mrrrrrr"
+driver.find_element(By.ID,"Iletisim").click()
+
+driver.find_element(By.ID,"name").send_keys(Test_Name)
+driver.find_element(By.ID,"email").send_keys(Test_Email)
+driver.find_element(By.ID,"MessageText").send_keys(Test_Message)
+driver.find_element(By.ID,"submit").click()
+# Checking 
+driver.find_element(By.ID,"Login").click()
+login()
+driver.find_element(By.ID,"MessageDataRedirect").click()
+# 4 is the message id
+if(
+str(driver.find_element(By.ID,"[4][1]").text)== "4" and 
+str(driver.find_element(By.ID,"[4][2]").text) == Test_Name and  
+str(driver.find_element(By.ID,"[4][3]").text) == Test_Email and  
+str(driver.find_element(By.ID,"[4][4]").text) == Test_Message
+):
+    print("PASSED !")
+else:
+    print("Failed !")
+
+
+
+
+
+""""
 
 action = ActionChains(driver)
 #maximizes current chrome window.
 driver.maximize_window()
+
+if(driver.find_element(By.ID,"Blocked")):
+    print("Passed for Guest")
+else:
+    print("Failed for Guest")
+
+driver.find_element(By.ID,"Blocked").click()
+driver.find_element(By.ID,"Login").click()
+driver.find_element(By.ID,"username").send_keys("alperbesli")
+driver.find_element(By.ID,"password").send_keys("topsecretpassword")
+driver.find_element(By.ID,"submitbutton").click()
+driver.get("http://localhost:5555/secret")
+
+if(driver.find_element(By.ID,"29c91c58bf1c06f40ca7d85afd908994")):
+    print("Passed for Admin")
+else:
+    print("Failed for Admin")
+
 
 #I wrote a method which automatically checks the element is enabled and is displayed, returns bool
 def status_check(ByWhat,element,description):
@@ -72,7 +126,7 @@ time.sleep(1)
 
 
 
-""""
+
 def loginAttempt(username,password):
     driver.find_element(By.ID,"Login").click()
 

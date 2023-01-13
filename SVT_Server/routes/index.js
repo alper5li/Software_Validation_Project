@@ -441,10 +441,10 @@ function getData(req,res)
           {
             txt+=`<tbody>`;
             txt+=`<tr id="${messages.ID}">`;
-            txt+=`<td>${messages.ID}</td>`;
-            txt+=`<td>${messages.name}</td>`;
-            txt+=`<td>${messages.email}</td>`;
-            txt+=`<td>${messages.message}</td>`;
+            txt+=`<td id="[${messages.ID}][1]">${messages.ID}</td>`;
+            txt+=`<td id="[${messages.ID}][2]">${messages.name}</td>`;
+            txt+=`<td id="[${messages.ID}][3]">${messages.email}</td>`;
+            txt+=`<td id="[${messages.ID}][4]">${messages.message}</td>`;
             txt+=`</tr>`;
             txt+=`</tbody>`;
           }
