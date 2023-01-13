@@ -15,10 +15,67 @@ driver = webdriver.Chrome(service=serv_obj)
 driver.get("http://localhost:5555/")
 time.sleep(1)
 driver.maximize_window()
+
+
 def login():
     driver.find_element(By.ID,"username").send_keys("alperbesli")
     driver.find_element(By.ID,"password").send_keys("topsecretpassword")
     driver.find_element(By.ID,"submitbutton").click()
+
+def randomString(length,complexity):
+
+    ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    digits = '0123456789'
+    punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    whitespace = " \t\n\r\x0b\x0c"
+    
+    if complexity == 1:
+        all = ascii_letters
+    elif complexity == 2:
+        all = punctuation
+    elif complexity ==3:
+        all = ascii_letters + digits + punctuation 
+    elif complexity ==4:
+        all = ascii_letters + digits + punctuation + whitespace    
+
+    created_string =""
+    for x in range(length):
+        num = (random.randint(0,length)) % len(all)
+        created_string += all[num]
+    
+    return created_string
+
+
+
+
+driver.find_element(By.ID,"Login").click()
+
+uname = randomString(5,1)
+passs = randomString(5,1)
+
+username = driver.find_element(By.ID,"username").send_keys(uname)
+password = driver.find_element(By.ID,"password").send_keys(passs)
+
+driver.back()
+
+login = driver.find_element(By.ID,"Login").click()
+
+if(uname != driver.find_element(By.ID,"password").get_attribute("value")):
+    print("First Entered Password => ["+uname+"]")
+    print("Current Field Data     => ["+driver.find_element(By.ID,"password").get_attribute("value")+"]")
+    print("PASSED")
+else :
+    print("First Entered Password => ["+uname+"]")
+    print("Current Field Data     => ["+driver.find_element(By.ID,"password").get_attribute("value")+"]")
+    print("FAILED")
+
+
+
+
+
+
+
+""""
 
 
 Test_Name = "Pepe The Cat"
@@ -49,7 +106,6 @@ else:
 
 
 
-""""
 
 action = ActionChains(driver)
 #maximizes current chrome window.
@@ -77,31 +133,6 @@ else:
 def status_check(ByWhat,element,description):
     print(element+" "+description+" is working : " + str(driver.find_element(ByWhat, element).is_enabled()))
     print(element+" "+description+" is displayed : " + str(driver.find_element(ByWhat, element).is_displayed()))
-
-def randomString(length,complexity):
-
-    ascii_letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    digits = '0123456789'
-    punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-    whitespace = " \t\n\r\x0b\x0c"
-    
-    if complexity == 1:
-        all = ascii_letters
-    elif complexity == 2:
-        all = punctuation
-    elif complexity ==3:
-        all = ascii_letters + digits + punctuation 
-    elif complexity ==4:
-        all = ascii_letters + digits + punctuation + whitespace    
-
-    created_string =""
-    for x in range(length):
-        num = (random.randint(0,length)) % len(all)
-        created_string += all[num]
-    
-    return created_string
-
-
 
 
 
@@ -164,27 +195,6 @@ finally:
 
 
 
-
-
-
-uname = randomString(5,1)
-passs = randomString(5,1)
-
-username = driver.find_element(By.ID,"username").send_keys(uname)
-password = driver.find_element(By.ID,"password").send_keys(passs)
-
-driver.back()
-
-login = driver.find_element(By.ID,"Login").click()
-
-if(uname != driver.find_element(By.ID,"password").get_attribute("value")):
-    print("First Entered Password => ["+uname+"]")
-    print("Current Field Data     => ["+uname+"]")
-    print("PASSED")
-else :
-    print("First Entered Password => ["+uname+"]")
-    print("Current Field Data     => ["+uname+"]")
-    print("FAILED")
 
 
 
