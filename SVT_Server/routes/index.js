@@ -117,7 +117,7 @@ router.post('/login',(req,res,next)=>{
     // SQL INJECTION WITH (')
     query = `SELECT * FROM users WHERE username ='${username}'`;
     database.query(query,(error,data)=>{
-      if(data.length > 0)
+      if(data)
       {
         for(const user of data)
         {

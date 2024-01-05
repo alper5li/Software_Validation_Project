@@ -79,13 +79,5 @@
             <column name="firstname">john</column>
             <column name="lastname">wick</column>
         </table>
-        <table name="users">
-            <column name="ID">3</column>
-            <column name="username">Atheros</column>
-            <column name="password">a36bbe1adcb38f1c</column>
-            <column name="email">youcantfindme@protonmail.com</column>
-            <column name="firstname">Edward</column>
-            <column name="lastname">Snowden</column>
-        </table>
     </database>
 </pma_xml_export>

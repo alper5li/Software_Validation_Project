@@ -70,8 +70,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`ID`, `username`, `password`, `email`, `firstname`, `lastname`) VALUES
 (1, 'alperbesli', 'topsecretpassword', 'alper.besli@st.uskudar.edu.tr', 'alper', 'besli'),
-(2, 'johnwick13', 'daisy', 'john.wick@st.uskudar.edu.tr', 'john', 'wick'),
-(3, 'Atheros', 'a36bbe1adcb38f1c', 'youcantfindme@protonmail.com', 'Edward', 'Snowden');
+(2, 'johnwick13', 'daisy', 'john.wick@st.uskudar.edu.tr', 'john', 'wick');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
